@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 from .models import Product
 from django.urls import reverse_lazy
 
@@ -25,7 +26,7 @@ class ProductDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('list')
 
-class ProductDetailView(UpdateView):
+class ProductDetailView(DetailView):
     model = Product
     fields = '__all__'
     template_name_suffix = '_detail'
